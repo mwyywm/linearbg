@@ -1,20 +1,86 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap");
 .App {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1,
+p {
+  text-shadow: 2px 2px #000000;
+  font-family: "Rubik", sans-serif;
+  font-weight: 400;
+}
+::selection {
+  background-color: black;
+}
+.colorpickers {
+  display: flex;
+  padding: 25px;
+}
+/* removes chrome color swatch border */
+input[type="color"]::-webkit-color-swatch {
+  border: none;
+}
+/* remove firefox color swatch border*/
+input::-moz-color-swatch {
+  border: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#colorpicker {
+  margin: 20px;
+  margin-top: 0px;
+  width: 55px;
+  height: 34px;
+  border: 1px solid black;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.24);
+}
+.copyP {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.9);
+  border-radius: 12px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 10px;
+  cursor: pointer;
 }
 
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 160px;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: #fff;
+  text-align: center;
+  padding: 3px 0;
+  text-shadow: 2px 2px #000000;
+  font-size: 18px;
+  border-radius: 6px;
+
+  /* Position the tooltip text */
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 1;
+  bottom: 115%;
+
+  /* Fade in tooltip */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
 .App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -26,13 +92,4 @@
 
 .App-link {
   color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
