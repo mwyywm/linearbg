@@ -11,6 +11,25 @@ p {
 ::selection {
   background-color: black;
 }
+
+.btn {
+  display: inline-block;
+  padding: 0.46em 1.6em;
+  border: 0.1em solid #000000;
+  margin: 0 0.2em 0.2em 0;
+  border-radius: 0.12em;
+  text-decoration: none;
+  font-weight: 300;
+  color: #ffffff;
+  text-shadow: 0 0.04em 0.04em rgba(0, 0, 0, 0.35);
+  background-color: #000000;
+  text-align: center;
+  transition: all 0.15s;
+  border-radius: 3px;
+}
+.btn:hover {
+  background-color: #242424;
+}
 .colorpickers {
   display: flex;
   padding: 25px;
@@ -37,11 +56,15 @@ input::-moz-color-swatch {
   justify-content: center;
   text-align: center;
   background-color: rgba(0, 0, 0, 0.9);
-  border-radius: 12px;
+  border-radius: 3px;
   padding-left: 20px;
   padding-right: 20px;
   margin: 10px;
   cursor: pointer;
+  transition: all 0.15s;
+}
+.copyP:hover {
+  background-color: #242424;
 }
 
 .tooltip {
