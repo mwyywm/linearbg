@@ -41,8 +41,8 @@ class App extends React.Component {
     this.setState({ [e.target.name]: e.target.value });
   }
   copyToClipboard(e) {
-    console.log("Lock1", this.state.Lock1);
-    console.log("Lock2", this.state.Lock2);
+    // console.log("Lock1", this.state.Lock1);
+    // console.log("Lock2", this.state.Lock2);
     if (e.target.lastChild.innerText === undefined) {
       // this will happen when its undefined
       e = navigator.clipboard.writeText(e.target.innerText).then(
@@ -54,7 +54,7 @@ class App extends React.Component {
             () => this.setState({ tooltext: "Copy to clipboard!" }),
             3000
           );
-          console.log(`successfully copied to clipboard`);
+          //console.log(`successfully copied to clipboard`);
         },
         () => {
           // on fail. Should never happen.
@@ -124,7 +124,7 @@ class App extends React.Component {
       >
         <header className="App-header">
           <h1>CSS gradient generator</h1>
-          <p>Pick 2 colors and then copy to clipboard</p>
+          <p>Pick 2 colors and then copy to the clipboard.</p>
           <button onClick={this.generateColors} className="btn">
             Click here to generate random colors!
           </button>
@@ -140,7 +140,7 @@ class App extends React.Component {
               style={{ cursor: "pointer" }}
             >
               <img
-                style={{ height: "35px" }}
+                style={{ height: "45px" }}
                 alt="locked icon"
                 src={
                   this.state.Lock1 === "Unlocked"
@@ -178,7 +178,7 @@ class App extends React.Component {
               style={{ cursor: "pointer" }}
             >
               <img
-                style={{ height: "35px" }}
+                style={{ height: "45px" }}
                 alt="locked icon"
                 src={
                   this.state.Lock2 === "Unlocked"
@@ -190,10 +190,29 @@ class App extends React.Component {
           </div>
           <div className="copyP tooltip" onClick={this.copyToClipboard}>
             <span className="tooltiptext">{this.state.tooltext}</span>
-            <p
-              id="linearcopy"
-              className="tooltip"
-            >{`linear-gradient(90deg, ${this.state.input1} 0%, ${this.state.input2} 100%)`}</p>
+            <p id="linearcopy" className="tooltip">
+              linear-gradient(90deg,{" "}
+              <span
+                style={{
+                  color: this.state.input1,
+                  backgroundColor: "rgb(13, 13, 13)",
+                  borderRadius: "5px",
+                }}
+              >
+                {this.state.input1}
+              </span>{" "}
+              0%, {""}
+              <span
+                style={{
+                  color: this.state.input2,
+                  backgroundColor: "rgb(13, 13, 13)",
+                  borderRadius: "5px",
+                }}
+              >
+                {this.state.input2}
+              </span>{" "}
+              100%)
+            </p>
           </div>
         </header>
       </div>
